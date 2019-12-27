@@ -1,7 +1,5 @@
 import jdk.nashorn.internal.ir.WhileNode;
-import org.zeromq.SocketType;
-import org.zeromq.ZContext;
-import org.zeromq.ZMQ;
+import org.zeromq.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,12 +20,36 @@ public class CacheStorage {
             socket = context.createSocket(SocketType.DEALER);
             socket.connect("tcp://localhost:6665");
 
-            ZMQ.Poller poller = new ZMQ.Poller(1);
-            
+            ZMQ.Poller poller = context.createPoller(1);
+            poller.register(socket, ZMQ.Poller.POLLIN);
+
+            long timeCut = System.currentTimeMillis();
 
             while (true){
-
+                if (System.currentTimeMillis() - timeCut > 4999){
+                    ZMsg mess = new ZMsg();
+                    mess.addLast("Hearthbeat");
+                    mess.send(socket);
+                }
+                if (poller.pollin(0)){
+                    ZMsg mess_poller_0 = ZMsg.recvMsg(socket);
+                    String[] contentStrings = mess_poller_0.getLast().toString().split(" ");
+                    if (contentStrings[0].contains("GET")) {
+                        int pos = Integer.parseInt(contentStrings[1]);
+                        mess_poller_0.pollLast();
+                        mess_poller_0.addLast(cache.get(pos)).send(socket);
+                    }
+                    if(contentStrings[0].contains("PUT")){
+                        int pos = Integer.parseInt(contentStrings[1]);
+                        String val = contentStrings[2].toString();
+                        cache.put(pos,val);
+                        mess_poller_0.send(socket);
+                    }
+                }
             }
+        }catch (ZMQException exception){
+            System.out.println("Error on CacheStorage side");
+            exception.printStackTrace();
         }
     }
 }
