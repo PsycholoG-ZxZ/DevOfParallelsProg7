@@ -1,3 +1,6 @@
+import org.zeromq.ZContext;
+import org.zeromq.ZMQ;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -10,7 +13,10 @@ public class CacheStorage {
         for (int i = scanner.nextInt(); i <= scanner.nextInt(); i++){
             cache.put(i, "");
         }
+        ZContext context = new ZContext();
+        ZMQ.Socket socket = null;
         try {
+            System.out.println("Connect with Cache");
 
         }
     }
