@@ -1,3 +1,4 @@
+import jdk.nashorn.internal.ir.WhileNode;
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
@@ -20,7 +21,12 @@ public class CacheStorage {
             System.out.println("Connect with Cache");
             socket = context.createSocket(SocketType.DEALER);
             socket.connect("tcp://localhost:6665");
-            
+
+            ZMQ.Poller poller = new ZMQ.Poller(1);
+
+            while (true){
+
+            }
         }
     }
 }
