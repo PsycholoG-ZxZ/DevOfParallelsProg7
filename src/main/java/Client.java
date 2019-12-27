@@ -9,6 +9,7 @@ public class Client {
         try{
             System.out.println("connect");
             socket = context.createSocket(SocketType.REQ);
+            socket.connect("tcp")
         }
 
     }
