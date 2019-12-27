@@ -22,7 +22,7 @@ public class Client {
                     break;
                 }
                 if (mes.contains("GET") && mes.contains("PUT")){
-                    socket.send("request" + i, 0);
+                    socket.send(mes);
                 }
 
 
