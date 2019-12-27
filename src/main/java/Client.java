@@ -8,7 +8,7 @@ public class Client {
         ZMQ.Socket socket = null;
         try{
             System.out.println("connect");
-            socket = context.createSocket(SocketType.REQ)
+            socket = context.createSocket(SocketType.REQ);
         }
 
     }
