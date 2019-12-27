@@ -32,7 +32,7 @@ public class Client {
 
         }catch (ZMQException exception){
             System.out.println("Error on clients side");
-            
+
         }finally {
             context.destroySocket(socket);
             context.destroy();
