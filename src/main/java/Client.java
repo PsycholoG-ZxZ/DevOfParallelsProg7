@@ -24,9 +24,10 @@ public class Client {
                 }
                 if (mes.contains("GET") && mes.contains("PUT")){
                     ZMsg par = new ZMsg();
-                    ZMsg req
+                    ZMsg req = new ZMsg();
                     par.addString(mes);
                     par.send(socket);
+                    
 
                 }
 
