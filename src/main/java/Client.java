@@ -1,7 +1,4 @@
-import org.zeromq.SocketType;
-import org.zeromq.ZContext;
-import org.zeromq.ZMQ;
-import org.zeromq.ZMsg;
+import org.zeromq.*;
 
 import java.util.Scanner;
 
@@ -27,16 +24,16 @@ public class Client {
                     ZMsg req = new ZMsg();
                     par.addString(mes);
                     par.send(socket);
-                    
-
+                    req = ZMsg.recvMsg(socket);
+                    System.out.println(req.popString());
+                    req.destroy();
                 }
-
-
             }
+
+        }catch (ZMQException exception){
+            System.out.println("Error on clients side");
         }finally {
             context.destroySocket(socket);
             context.destroy();
-        }
-
     }
 }
