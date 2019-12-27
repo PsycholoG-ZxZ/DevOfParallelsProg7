@@ -1,3 +1,4 @@
+import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
@@ -17,7 +18,9 @@ public class CacheStorage {
         ZMQ.Socket socket = null;
         try {
             System.out.println("Connect with Cache");
-
+            socket = context.createSocket(SocketType.DEALER);
+            socket.connect("tcp://localhost:6665");
+            
         }
     }
 }
