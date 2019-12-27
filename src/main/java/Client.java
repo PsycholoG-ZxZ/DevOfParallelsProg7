@@ -3,23 +3,23 @@ import org.zeromq.*;
 import java.util.Scanner;
 
 public class Client {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ZContext context = new ZContext();
         ZMQ.Socket socket = null;
         Scanner scanner = new Scanner(System.in);
 
-        try{
+        try {
             System.out.println("connect");
             socket = context.createSocket(SocketType.REQ);
             socket.connect("tcp://localhost:5555");
             //while(!Thread.currentThread().isInterrupted()){ // or
 
-            while (true){
+            while (true) {
                 String mes = scanner.nextLine();
-                if (mes.equals("EXIT")){
+                if (mes.equals("EXIT")) {
                     break;
                 }
-                if (mes.contains("GET") && mes.contains("PUT")){
+                if (mes.contains("GET") && mes.contains("PUT")) {
                     ZMsg par = new ZMsg();
                     ZMsg req = new ZMsg();
                     par.addString(mes);
@@ -30,11 +30,12 @@ public class Client {
                 }
             }
 
-        }catch (ZMQException exception){
+        } catch (ZMQException exception) {
             System.out.println("Error on clients side");
 
-        }finally {
+        } finally {
             context.destroySocket(socket);
             context.destroy();
+        }
     }
 }
