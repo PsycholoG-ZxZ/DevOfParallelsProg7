@@ -1,6 +1,7 @@
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
+import org.zeromq.ZMsg;
 
 import java.util.Scanner;
 
@@ -22,7 +23,11 @@ public class Client {
                     break;
                 }
                 if (mes.contains("GET") && mes.contains("PUT")){
-                    socket.send(mes);
+                    ZMsg par = new ZMsg();
+                    ZMsg req
+                    par.addString(mes);
+                    par.send(socket);
+
                 }
 
 
