@@ -1,3 +1,4 @@
+import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
@@ -7,7 +8,7 @@ public class Client {
         ZMQ.Socket socket = null;
         try{
             System.out.println("connect");
-            socket = context.createSocket(SocketT)
+            socket = context.createSocket(SocketType.REQ)
         }
 
     }
