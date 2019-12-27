@@ -23,6 +23,7 @@ public class CacheStorage {
             socket.connect("tcp://localhost:6665");
 
             ZMQ.Poller poller = new ZMQ.Poller(1);
+            
 
             while (true){
 
