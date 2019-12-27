@@ -3,7 +3,12 @@ import org.zeromq.ZMQ;
 
 public class Client {
     public static void main(String[] args){
-        ZContext context = ZMQ.context();
+        ZContext context = new ZContext();
+        ZMQ.Socket socket = null;
+        try{
+            System.out.println("connect");
+            socket = context.createSocket()
+        }
 
     }
 }
