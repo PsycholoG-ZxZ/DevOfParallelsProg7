@@ -2,6 +2,7 @@ import org.zeromq.*;
 
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class ProxyServer {
@@ -27,7 +28,7 @@ public class ProxyServer {
             while (!Thread.currentThread().isInterrupted()){
                 poller.poll();
                 if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis() - time > 5000){
-                    for ()
+                    for (Iterator)
                 }
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
