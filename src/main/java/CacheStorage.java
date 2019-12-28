@@ -13,7 +13,7 @@ public class CacheStorage {
         int l = scanner.nextInt();
         int r = scanner.nextInt();
         for (int i = l; i <= r; i++){
-            cache.put(i, "");
+            cache.put(i, "!");
         }
         System.out.println("scanner accept data");
         ZContext context = new ZContext();
