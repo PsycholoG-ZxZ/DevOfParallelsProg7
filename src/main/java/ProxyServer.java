@@ -43,7 +43,7 @@ public class ProxyServer {
                     if (frameAndCacheMap.isEmpty()){
                         System.out.println("CHECK EMPTY MAP");
                         ZMsg err = new ZMsg();
-                        err.add(msg.toString());
+                        err.add(msg.getFirst());
                         err.add("");
                         err.add("No Cache");
                         err.send(frontend);
