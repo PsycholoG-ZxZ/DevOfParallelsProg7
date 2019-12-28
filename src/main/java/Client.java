@@ -20,7 +20,7 @@ public class Client {
                     break;
                 }
                 if (!mes.contains("GET") && !mes.contains("PUT")) {
-                    System.out.println();
+                    System.out.println("Incorrect input");
                 }else{
                     ZMsg par = new ZMsg();
                     ZMsg req = new ZMsg();
