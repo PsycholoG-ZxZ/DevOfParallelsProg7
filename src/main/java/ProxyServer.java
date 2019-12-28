@@ -23,7 +23,7 @@ public class ProxyServer {
                     ZMsg msg = ZMsg.recvMsg(frontend);
                     String[] msgInStr =     msg.getLast().toString().split(" ");
 
-                    
+                    for ()
                 }
             }
         }
