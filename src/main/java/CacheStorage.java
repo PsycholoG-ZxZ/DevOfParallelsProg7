@@ -38,7 +38,7 @@ public class CacheStorage {
                 if (poller.pollin(0)){
                     ZMsg mess_poller_0 = ZMsg.recvMsg(socket);
                     String[] contentStrings = mess_poller_0.getLast().toString().split(" ");
-                    System.out.println(contentStrings[0] + " MAGIC ");
+                    System.out.println(contentStrings[0]);
                     if (contentStrings[0].contains("GET")) {
                         int pos = Integer.parseInt(contentStrings[1]);
                         mess_poller_0.pollLast();
