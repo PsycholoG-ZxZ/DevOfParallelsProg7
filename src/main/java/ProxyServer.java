@@ -93,7 +93,7 @@ public class ProxyServer {
                             frameAndCacheMap.get(msg.getFirst()).changeTime(System.currentTimeMillis());
                         }
                     }else{
-                        System.out.println("No heartbeat duuude");
+                        System.out.println("No heartbeat ");
                         msg.pop();
                         msg.send(frontend);
                     }

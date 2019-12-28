@@ -26,6 +26,7 @@ public class Client {
                     ZMsg par = new ZMsg();
                     ZMsg req = new ZMsg();
                     par.addString(mes);
+                    System.out.println(par.toString());
                     par.send(socket);
                     req = ZMsg.recvMsg(socket);
                     if (req == null){
