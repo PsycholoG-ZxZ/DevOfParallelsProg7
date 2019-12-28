@@ -19,7 +19,9 @@ public class Client {
                 if (mes.equals("EXIT")) {
                     break;
                 }
-                if (mes.contains("GET") && mes.contains("PUT")) {
+                if (!mes.contains("GET") && !mes.contains("PUT")) {
+                    System.out.println();
+                }else{
                     ZMsg par = new ZMsg();
                     ZMsg req = new ZMsg();
                     par.addString(mes);
