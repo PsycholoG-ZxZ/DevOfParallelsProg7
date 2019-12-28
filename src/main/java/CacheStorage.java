@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public static 
+public static final 
 
 public class CacheStorage {
     public static void main(String[] args){
