@@ -15,7 +15,6 @@ public class Client {
             //while(!Thread.currentThread().isInterrupted()){ // or
 
             while (true) {
-                String mes = scanner.nextS
                 String mes = scanner.nextLine();
                 if (mes.equals("EXIT")) {
                     break;
