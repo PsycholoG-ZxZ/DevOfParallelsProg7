@@ -22,8 +22,9 @@ public class ProxyServer {
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
                     String[] msgInStr =     msg.getLast().toString().split(" ");
-
-                    for ()
+                }
+                if (poller.pollin(1)){
+                    
                 }
             }
         }
