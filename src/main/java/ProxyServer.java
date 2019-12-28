@@ -23,7 +23,7 @@ public class ProxyServer {
             poller.register(backend, ZMQ.Poller.POLLIN);
             while (!Thread.currentThread().isInterrupted()){
                 poller.poll();
-                if (!frameAndCacheMap.isEmpty() && )
+                if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis())
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
 
