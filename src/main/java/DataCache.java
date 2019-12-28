@@ -12,4 +12,12 @@ public class DataCache {
     public void changeTime(long time){
         this.time = time;
     }
+
+    public int getBegin() {
+        return begin;
+    }
+
+    public int getEnd() {
+        return end;
+    }
 }
