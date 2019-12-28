@@ -11,7 +11,9 @@ public class ProxyServer {
             ZMQ.Socket frontend = context.createSocket(SocketType.ROUTER);
             ZMQ.Socket backend = context.createSocket(SocketType.ROUTER);
 
-            frontend.bind()
+            frontend.bind("tcp://localhost:5555");
+            backend.bind("tcp://localhost:6665");
+            
         }
 
     }
