@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public static final 
+public static final GETCONST = "GET";
 
 public class CacheStorage {
     public static void main(String[] args){
