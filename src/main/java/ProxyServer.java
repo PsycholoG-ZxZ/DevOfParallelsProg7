@@ -93,8 +93,8 @@ public class ProxyServer {
                             frameAndCacheMap.get(msg.getFirst()).changeTime(System.currentTimeMillis());
                         }
                     }else{
-                        ZMsg err = new ZMsg();
                         err.add("side NO HEARTHBEAT");
+
                         err.send(frontend);
                     }
                 }
