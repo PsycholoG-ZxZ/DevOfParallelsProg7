@@ -65,6 +65,7 @@ public class ProxyServer {
                 if (poller.pollin(1)){
 
                     ZMsg msg = ZMsg.recvMsg(backend);
+                    System.out.println("Get msg from Server");
                     if (msg.toString().contains("Hearthbeat")) {
                         if (!frameAndCacheMap.containsKey(msg.getFirst())) {
                             ZFrame frame = msg.getLast();
