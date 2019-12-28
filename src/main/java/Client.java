@@ -6,13 +6,14 @@ public class Client {
     public static void main(String[] args) {
         ZContext context = new ZContext();
         ZMQ.Socket socket = null;
-        Scanner scanner = new Scanner(System.in);
+
 
         try {
             System.out.println("connect");
             socket = context.createSocket(SocketType.REQ);
             socket.connect("tcp://localhost:5555");
             //while(!Thread.currentThread().isInterrupted()){ // or
+            Scanner scanner = new Scanner(System.in);
 
             while (true) {
                 String mes = scanner.nextLine();
