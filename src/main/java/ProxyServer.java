@@ -1,5 +1,6 @@
 import org.zeromq.*;
 
+import javax.xml.crypto.Data;
 import java.net.Socket;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -29,7 +30,7 @@ public class ProxyServer {
                 poller.poll();
                 if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis() - time > 5000){
                     for (Iterator<Map.Entry<ZFrame, DataCache>> iter = frameAndCacheMap.entrySet().iterator(); iter.hasNext();){
-                        Map.Entry<ZFrame, CacheStorage>
+                        Map.Entry<ZFrame, DataCache>
                     }
                 }
                 if (poller.pollin(0)){
