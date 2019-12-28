@@ -20,4 +20,8 @@ public class DataCache {
     public int getEnd() {
         return end;
     }
+
+    public long getTime() {
+        return time;
+    }
 }
