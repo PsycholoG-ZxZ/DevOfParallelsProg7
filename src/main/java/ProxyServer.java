@@ -56,6 +56,10 @@ public class ProxyServer {
                                     msgForGet.addFirst(newFrme);
                                     msgForGet.send(backend);
                                 }else{
+                                    if (msgInStr[1].isEmpty()){ ZMsg err = new ZMsg();
+                                        err.add("Errror");
+                                        err.send(frontend);
+                                    }
                                     ZMsg err = new ZMsg();
                                     err.add("Errror on Proxy side");
                                     err.send(frontend);
