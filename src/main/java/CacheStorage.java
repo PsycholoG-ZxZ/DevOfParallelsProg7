@@ -48,6 +48,7 @@ public class CacheStorage {
                         String val = contentStrings[2].toString();
                         cache.put(pos,val);
                         mess_poller_0.send(socket);
+                        System.out.println("PUT из Cache" + contentStrings[0]+ " " +contentStrings[1]);
                     }
                 }
             }
