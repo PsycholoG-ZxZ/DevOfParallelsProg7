@@ -14,7 +14,8 @@ public class ProxyServer {
             frontend.bind("tcp://localhost:5555");
             backend.bind("tcp://localhost:6665");
             ZMQ.Poller poller =context.createPoller(2);
-            
+
+            poller.register()
         }
 
     }
