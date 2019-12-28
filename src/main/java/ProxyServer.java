@@ -20,7 +20,7 @@ public class ProxyServer {
             while (!Thread.currentThread().isInterrupted()){
                 poller.poll();
                 if (poller.pollin(0)){
-                    ZMsg msg = Zmsg
+                    ZMsg msg = ZMsg.recvMsg()
                 }
             }
         }
