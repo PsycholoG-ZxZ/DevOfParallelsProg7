@@ -38,9 +38,24 @@ public class ProxyServer {
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
                                     ZFrame newFrme = mapZD.getKey();
                                     msg.addFirst(newFrme);
-                                    
+                                    msg.send(backend);
                                 }
                             }
+                        }
+                        if (msgInStr.equals("PUT")){
+                            for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
+                                if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
+                                        (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
+                                    ZFrame newFrme = mapZD.getKey();
+                                    ZMsg msgForBack = msg.duplicate();
+                                    msgForBack.addFirst(newFrme);
+                                    msgForBack.send(backend);
+                                }
+                            }
+                        }else {
+                            ZMsg err = new ZMsg();
+                            err.add("Errror on Proxy side");
+                            err.send(frontend);
                         }
 
                     }
