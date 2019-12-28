@@ -68,6 +68,7 @@ public class ProxyServer {
                     //System.out.println("Get msg from Server");
                     if (msg.toString().contains("Hearthbeat")) {
                         if (!frameAndCacheMap.containsKey(msg.getFirst())) {
+                            System.out.println("Get msg from Cache in Proxy");
                             ZFrame frame = msg.getLast();
                             String[] splitedFrame = frame.toString().split(" ");
                             DataCache data = new DataCache(Integer.parseInt(splitedFrame[1])
