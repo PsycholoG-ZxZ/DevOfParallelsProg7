@@ -55,6 +55,11 @@ public class ProxyServer {
                                     ZFrame newFrme = mapZD.getKey();
                                     msgForGet.addFirst(newFrme);
                                     msgForGet.send(backend);
+                                }else{
+                                    ZMsg err = new ZMsg();
+                                    err.add("Errror on Proxy side");
+                                    err.send(frontend);
+                                    System.out.println("WRONG INP");
                                 }
                             }
                         }
