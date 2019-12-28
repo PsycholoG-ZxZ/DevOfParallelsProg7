@@ -5,9 +5,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public static final String GET_CONST = "GET";
+
 
 public class CacheStorage {
+
+    public static final String GET_CONST = "GET";
+    public static final String PUT_CONST = "PUT";
+
     public static void main(String[] args){
         //key-value
         Map<Integer,String> cache = new HashMap<>();
@@ -41,13 +45,13 @@ public class CacheStorage {
                     ZMsg mesPoller = ZMsg.recvMsg(socket);
                     String[] contentStrings = mesPoller.getLast().toString().split(" ");
                     System.out.println(contentStrings[0]);
-                    if (contentStrings[0].contains("GET")) {
+                    if (contentStrings[0].contains(GET_CONST)) {
                         int pos = Integer.parseInt(contentStrings[1]);
                         mesPoller.pollLast();
                         mesPoller.addLast(cache.get(pos)).send(socket);
                         System.out.println("GET из Cache  - " + contentStrings[0]+ " " +contentStrings[1]);
                     }
-                    if(contentStrings[0].contains("PUT")){
+                    if(contentStrings[0].contains(PUT_CONST)){
                         int pos = Integer.parseInt(contentStrings[1]);
                         String val = contentStrings[2].toString();
                         cache.put(pos,val);

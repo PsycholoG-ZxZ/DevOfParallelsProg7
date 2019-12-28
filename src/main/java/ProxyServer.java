@@ -8,6 +8,9 @@ import java.util.Map;
 
 public class ProxyServer {
 
+    public static final String GET_CONST = "GET";
+    public static final String PUT_CONST = "PUT";
+
     public static void main(String[] args){
         ZContext context = new ZContext();
 
@@ -50,7 +53,7 @@ public class ProxyServer {
                         err.send(frontend);
                     }else {
                         String[] msgInStr = msg.getLast().toString().split(" ");
-                        if (msgInStr[0].equals("GET")){
+                        if (msgInStr[0].equals(GET_CONST )){
                             for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
                                 if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
@@ -71,7 +74,7 @@ public class ProxyServer {
                                 }
                             }
                         }
-                        if (msgInStr[0].equals("PUT")){
+                        if (msgInStr[0].equals(PUT_CONST)){
                             for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
                                 if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
