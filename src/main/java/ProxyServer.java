@@ -34,7 +34,12 @@ public class ProxyServer {
                         String[] msgInStr = msg.getLast().toString().split(" ");
                         if (msgInStr.equals("GET")){
                             for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
-                                if (mapZD.getValue() >= mapZD.getValue().getBegin())
+                                if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
+                                        (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
+                                    ZFrame newFrme = mapZD.getKey();
+                                    msg.addFirst(newFrme);
+                                    
+                                }
                             }
                         }
 
