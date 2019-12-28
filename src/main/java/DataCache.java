@@ -1,6 +1,6 @@
 public class DataCache {
     private int begin, end;
-    private int time;
+    private long time;
 
-    public 
+    public
 }
