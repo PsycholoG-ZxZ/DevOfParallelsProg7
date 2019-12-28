@@ -1,3 +1,3 @@
 public class DataCache {
-    private 
+    private begin, end 
 }
