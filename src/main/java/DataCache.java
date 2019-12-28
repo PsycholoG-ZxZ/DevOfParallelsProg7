@@ -9,5 +9,5 @@ public class DataCache {
         this.end = e;
         this.time = time;
     }
-    
+
 }
