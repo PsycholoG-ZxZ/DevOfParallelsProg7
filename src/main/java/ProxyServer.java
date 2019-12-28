@@ -31,7 +31,7 @@ public class ProxyServer {
                 if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis() - time > 5000){
                     for (Iterator<Map.Entry<ZFrame, DataCache>> iter = frameAndCacheMap.entrySet().iterator(); iter.hasNext();){
                         Map.Entry<ZFrame, DataCache> entry = iter.next();
-                        if ()
+                        if (Math.abs)
                     }
                 }
                 if (poller.pollin(0)){
