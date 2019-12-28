@@ -47,7 +47,9 @@ public class ProxyServer {
                     }else {
                         String[] msgInStr = msg.getLast().toString().split(" ");
                         if (msgInStr[0].equals("GET")){
+                            System.out.println("Go Throw GET in proxy 1");
                             for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
+                                System.out.println("Go Throw GET in proxy 2");
                                 if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
                                     System.out.println("Go Throw GET in proxy");
