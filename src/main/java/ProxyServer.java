@@ -1,12 +1,16 @@
 import org.zeromq.*;
 
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ProxyServer {
 
     public static void main(String[] args){
         ZContext context = new ZContext();
+
         try {
+            Map<ZFrame, DataCache> frameAndCacheMap = new HashMap<>();
 
             ZMQ.Socket frontend = context.createSocket(SocketType.ROUTER);
             ZMQ.Socket backend = context.createSocket(SocketType.ROUTER);
@@ -24,13 +28,19 @@ public class ProxyServer {
                     String[] msgInStr =     msg.getLast().toString().split(" ");
                 }
                 if (poller.pollin(1)){
+
                     ZMsg msg = ZMsg.recvMsg(backend);
-                    ZFrame frame = msg.getLast();
-                    String[] splitedFrame = frame.toString().split(" ");
-                    DataCache data = new DataCache(Integer.parseInt(splitedFrame[1])
-                            ,Integer.parseInt(splitedFrame[2])
-                            ,System.currentTimeMillis());
-                    
+                    if (!frameAndCacheMap.containsKey(msg.getFirst())) {
+                        ZFrame frame = msg.getLast();
+                        String[] splitedFrame = frame.toString().split(" ");
+                        DataCache data = new DataCache(Integer.parseInt(splitedFrame[1])
+                                , Integer.parseInt(splitedFrame[2])
+                                , System.currentTimeMillis());
+                        frameAndCacheMap.put(msg.getFirst(), data);
+                    }else{
+                        frameAndCacheMap.get(msg.getFirst().duplicate());
+                    }
+
                 }
             }
         }
