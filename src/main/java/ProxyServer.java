@@ -94,7 +94,7 @@ public class ProxyServer {
                         }
                     }else{
                         ZMsg err = new ZMsg();
-                        err.add("Errror on Proxy side NO HEARTHBEAT");
+                        err.add("side NO HEARTHBEAT");
                         err.send(frontend);
                     }
                 }
