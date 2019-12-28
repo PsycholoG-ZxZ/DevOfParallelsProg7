@@ -93,9 +93,9 @@ public class ProxyServer {
                             frameAndCacheMap.get(msg.getFirst()).changeTime(System.currentTimeMillis());
                         }
                     }else{
-                        err.add("side NO HEARTHBEAT");
-
-                        err.send(frontend);
+                        System.out.println("No heartbeat duuude");
+                        msg.pop();
+                        msg.send(frontend);
                     }
                 }
             }
