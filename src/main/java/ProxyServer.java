@@ -27,7 +27,7 @@ public class ProxyServer {
             while (!Thread.currentThread().isInterrupted()){
                 poller.poll();
                 if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis() - time > 5000){
-                    for
+                    for ()
                 }
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
