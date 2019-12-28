@@ -51,9 +51,10 @@ public class ProxyServer {
                                 if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
                                     System.out.println("Go Throw GET in proxy");
-                                    ZFrame newFrme = mapZD.getKey().duplicate();
-                                    msg.addFirst(newFrme);
-                                    msg.send(backend);
+                                    ZMsg msgForGet = msg.duplicate();
+                                    ZFrame newFrme = mapZD.getKey();
+                                    msgForGet.addFirst(newFrme);
+                                    msgForGet.send(backend);
                                 }
                             }
                         }
