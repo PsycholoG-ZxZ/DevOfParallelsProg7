@@ -8,8 +8,8 @@ public class ProxyServer {
 
         try {
             ZContext context = new ZContext();
-            Socket frontend = .createSocket(SocketType.ROUTER);
-            Socket backend = ctx.createSocket(SocketType.ROUTER);
+            Socket frontend = context.createSocket(SocketType.ROUTER);
+            Socket backend = context.createSocket(SocketType.ROUTER);
         }
 
     }
