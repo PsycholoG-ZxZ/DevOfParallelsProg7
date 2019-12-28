@@ -10,7 +10,9 @@ public class CacheStorage {
         //key-value
         Map<Integer,String> cache = new HashMap<>();
         Scanner scanner = new Scanner(System.in);
-        for (int i = scanner.nextInt(); i <= scanner.nextInt(); i++){
+        int l = scanner.nextInt();
+        int r = scanner.nextInt();
+        for (int i = l; i <= r; i++){
             cache.put(i, "");
         }
         System.out.println("scanner accept data");
