@@ -53,7 +53,6 @@ public class ProxyServer {
                                     System.out.println("Go Throw GET in proxy");
                                     ZFrame newFrme = mapZD.getKey().duplicate();
                                     msg.addFirst(newFrme);
-
                                     msg.send(backend);
                                 }
                             }
