@@ -32,6 +32,9 @@ public class ProxyServer {
                         err.send(frontend);
                     }else {
                         String[] msgInStr = msg.getLast().toString().split(" ");
+                        if (msgInStr.equals("GET")){
+                            
+                        }
 
                     }
                 }
