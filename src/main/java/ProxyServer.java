@@ -18,7 +18,7 @@ public class ProxyServer {
             poller.register(frontend, ZMQ.Poller.POLLIN);
             poller.register(backend, ZMQ.Poller.POLLIN);
             while (!Thread.currentThread().isInterrupted()){
-                
+                poller.
             }
         }
 
