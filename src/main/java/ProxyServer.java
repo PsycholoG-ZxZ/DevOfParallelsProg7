@@ -5,7 +5,8 @@ import java.net.Socket;
 public class ProxyServer {
 
     public static void main(String[] args){
-    Socket frontend = ctx.createSocket(SocketType)
+        Socket frontend = .createSocket(SocketType.ROUTER);
+        Socket backend = ctx.createSocket(SocketType.ROUTER);
     }
 
 }
