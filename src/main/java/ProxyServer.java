@@ -63,7 +63,7 @@ public class ProxyServer {
                     }
                 }
                 if (poller.pollin(1)){
-
+                    if
                     ZMsg msg = ZMsg.recvMsg(backend);
                     if (!frameAndCacheMap.containsKey(msg.getFirst())) {
                         ZFrame frame = msg.getLast();
