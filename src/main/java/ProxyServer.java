@@ -10,7 +10,8 @@ public class ProxyServer {
 
             ZMQ.Socket frontend = context.createSocket(SocketType.ROUTER);
             ZMQ.Socket backend = context.createSocket(SocketType.ROUTER);
-            
+
+            frontend.bind()
         }
 
     }
