@@ -29,7 +29,7 @@ public class CacheStorage {
             long timeCut = System.currentTimeMillis();
 
             while (true){
-                if (System.currentTimeMillis() - timeCut > 4999){
+                if (System.currentTimeMillis() - timeCut > 5000){
                     ZMsg mess = new ZMsg();
                     mess.addLast("Hearthbeat"+ " " + l + " " + r);
                     mess.send(socket);
