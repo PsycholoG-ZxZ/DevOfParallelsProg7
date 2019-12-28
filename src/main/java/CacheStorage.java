@@ -46,7 +46,7 @@ public class CacheStorage {
                         int pos = Integer.parseInt(contentStrings[1]);
                         String val = contentStrings[2].toString();
                         cache.put(pos,val);
-                        //mess_poller_0.send(socket);
+                        mess_poller_0.send(socket);
                     }
                 }
             }
