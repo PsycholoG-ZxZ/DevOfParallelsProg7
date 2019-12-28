@@ -36,20 +36,20 @@ public class CacheStorage {
                     mess.send(socket);
                 }
                 if (poller.pollin(0)){
-                    ZMsg mess_poller_0 = ZMsg.recvMsg(socket);
-                    String[] contentStrings = mess_poller_0.getLast().toString().split(" ");
+                    ZMsg mesPoller = ZMsg.recvMsg(socket);
+                    String[] contentStrings = mesPoller.getLast().toString().split(" ");
                     System.out.println(contentStrings[0]);
                     if (contentStrings[0].contains("GET")) {
                         int pos = Integer.parseInt(contentStrings[1]);
-                        mess_poller_0.pollLast();
-                        mess_poller_0.addLast(cache.get(pos)).send(socket);
+                        mesPoller.pollLast();
+                        mesPoller.addLast(cache.get(pos)).send(socket);
                         System.out.println("GET из Cache  - " + contentStrings[0]+ " " +contentStrings[1]);
                     }
                     if(contentStrings[0].contains("PUT")){
                         int pos = Integer.parseInt(contentStrings[1]);
                         String val = contentStrings[2].toString();
                         cache.put(pos,val);
-                        mess_poller_0.send(socket);
+                        mesPoller.send(socket);
                         System.out.println("PUT из Cache" + contentStrings[0]+ " " +contentStrings[1]);
                     }
                 }
