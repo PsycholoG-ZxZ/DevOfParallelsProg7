@@ -38,11 +38,12 @@ public class ProxyServer {
                                 , System.currentTimeMillis());
                         frameAndCacheMap.put(msg.getFirst(), data);
                     }else{
-                        frameAndCacheMap.get(msg.getFirst());
+                        frameAndCacheMap.get(msg.getFirst()).changeTime(System.currentTimeMillis());
                     }
-
                 }
             }
+        } catch (ZMQException exception){
+            System.out.println("Error on Proxy side");
         }
 
     }
