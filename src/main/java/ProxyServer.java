@@ -16,7 +16,8 @@ public class ProxyServer {
             ZMQ.Poller poller =context.createPoller(2);
 
             poller.register(frontend, ZMQ.Poller.POLLIN);
-            poller.register(backend, ZMQ.Poller)
+            poller.register(backend, ZMQ.Poller.POLLIN);
+            
         }
 
     }
