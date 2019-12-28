@@ -31,7 +31,7 @@ public class ProxyServer {
                 if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis() - time > 5000){
                     for (Iterator<Map.Entry<ZFrame, DataCache>> iter = frameAndCacheMap.entrySet().iterator(); iter.hasNext();){
                         Map.Entry<ZFrame, DataCache> entry = iter.next();
-                        if (Math.abs(entry.getValue().getTime() - time) > 5000 * 5){
+                        if (Math.abs(entry.getValue().getTime() - time) > 5000 * 100){
                             System.out.println("Cache deleted" + entry.getKey());
                             iter.remove();
                         }
@@ -42,7 +42,7 @@ public class ProxyServer {
                     if (msg == null) break;
 
                     if (frameAndCacheMap.isEmpty()){
-                        System.out.println("CHECK EMPTY MAP");
+                        System.out.println("EMPTY MAP");
                         ZMsg err = new ZMsg();
                         err.add(msg.getFirst());
                         err.add("");
