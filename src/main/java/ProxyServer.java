@@ -1,9 +1,11 @@
-import org.zeromq.ZMQ;
+import org.zeromq.*;
+
+import java.net.Socket;
 
 public class ProxyServer {
 
     public static void main(String[] args){
-    ZMQ.Socket frontend = ctx.createSocket
+    Socket frontend = ctx.createSocket
     }
 
 }
