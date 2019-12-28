@@ -35,7 +35,7 @@ public class ProxyServer {
                             System.out.println("Cache deleted" + entry.getKey());
                             iter.remove();
                         }
-                    }
+                    } time = System.currentTimeMillis();
                 }
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
