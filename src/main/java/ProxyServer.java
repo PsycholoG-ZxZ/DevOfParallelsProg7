@@ -25,7 +25,12 @@ public class ProxyServer {
                 }
                 if (poller.pollin(1)){
                     ZMsg msg = ZMsg.recvMsg(backend);
-                    ZFrame frame = 
+                    ZFrame frame = msg.getLast();
+                    String[] splitedFrame = frame.toString().split(" ");
+                    DataCache data = new DataCache(Integer.parseInt(splitedFrame[1])
+                            ,Integer.parseInt(splitedFrame[2])
+                            ,System.currentTimeMillis());
+                    
                 }
             }
         }
