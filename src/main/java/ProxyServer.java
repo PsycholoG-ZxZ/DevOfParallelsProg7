@@ -39,6 +39,7 @@ public class ProxyServer {
                 }
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
+                    if (msg == null) break;
 
                     if (frameAndCacheMap.isEmpty()){
                         System.out.println("CHECK EMPTY MAP");
