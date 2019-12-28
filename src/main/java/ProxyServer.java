@@ -25,7 +25,15 @@ public class ProxyServer {
                 poller.poll();
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
-                    String[] msgInStr =     msg.getLast().toString().split(" ");
+
+                    if (frameAndCacheMap.isEmpty()){
+                        ZMsg err = new ZMsg();
+                        err.add("No Cache");
+                        err.send(frontend);
+                    }else {
+                        String[] msgInStr = msg.getLast().toString().split(" ");
+                        
+                    }
                 }
                 if (poller.pollin(1)){
 
@@ -44,6 +52,7 @@ public class ProxyServer {
             }
         } catch (ZMQException exception){
             System.out.println("Error on Proxy side");
+            exception.printStackTrace();
         }
 
     }
