@@ -5,8 +5,13 @@ import java.net.Socket;
 public class ProxyServer {
 
     public static void main(String[] args){
-        Socket frontend = .createSocket(SocketType.ROUTER);
-        Socket backend = ctx.createSocket(SocketType.ROUTER);
+
+        try {
+            ZContext context = new ZContext();
+            Socket frontend = .createSocket(SocketType.ROUTER);
+            Socket backend = ctx.createSocket(SocketType.ROUTER);
+        }
+
     }
 
 }
