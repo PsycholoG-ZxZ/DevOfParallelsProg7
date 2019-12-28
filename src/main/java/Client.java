@@ -28,7 +28,9 @@ public class Client {
                     par.addString(mes);
                     par.send(socket);
                     req = ZMsg.recvMsg(socket);
-                    if (req )
+                    if (req == null){
+                        
+                    }
                     System.out.println(req.popString());
                     req.destroy();
                 }
