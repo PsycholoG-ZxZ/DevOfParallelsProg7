@@ -65,16 +65,21 @@ public class ProxyServer {
                 if (poller.pollin(1)){
 
                     ZMsg msg = ZMsg.recvMsg(backend);
-                    if (msg.toString().contains("Hearthbeat"))
-                    if (!frameAndCacheMap.containsKey(msg.getFirst())) {
-                        ZFrame frame = msg.getLast();
-                        String[] splitedFrame = frame.toString().split(" ");
-                        DataCache data = new DataCache(Integer.parseInt(splitedFrame[1])
-                                , Integer.parseInt(splitedFrame[2])
-                                , System.currentTimeMillis());
-                        frameAndCacheMap.put(msg.getFirst(), data);
+                    if (msg.toString().contains("Hearthbeat")) {
+                        if (!frameAndCacheMap.containsKey(msg.getFirst())) {
+                            ZFrame frame = msg.getLast();
+                            String[] splitedFrame = frame.toString().split(" ");
+                            DataCache data = new DataCache(Integer.parseInt(splitedFrame[1])
+                                    , Integer.parseInt(splitedFrame[2])
+                                    , System.currentTimeMillis());
+                            frameAndCacheMap.put(msg.getFirst(), data);
+                        } else {
+                            frameAndCacheMap.get(msg.getFirst()).changeTime(System.currentTimeMillis());
+                        }
                     }else{
-                        frameAndCacheMap.get(msg.getFirst()).changeTime(System.currentTimeMillis());
+                        ZMsg err = new ZMsg();
+                        err.add("Errror on Proxy side NO HEARTHBEAT");
+                        err.send(frontend);
                     }
                 }
             }
