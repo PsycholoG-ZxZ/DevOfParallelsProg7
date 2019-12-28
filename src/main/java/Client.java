@@ -30,6 +30,7 @@ public class Client {
                     par.send(socket);
                     req = ZMsg.recvMsg(socket);
                     if (req == null){
+                        System.out.println("BREAK");
                         break;
                     }
                     System.out.println(req.popString());
