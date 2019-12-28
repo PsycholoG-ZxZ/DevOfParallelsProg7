@@ -21,7 +21,7 @@ public class ProxyServer {
                 poller.poll();
                 if (poller.pollin(0)){
                     ZMsg msg = ZMsg.recvMsg(frontend);
-                    String[] msgInStr =     
+                    String[] msgInStr =     msg.get
                 }
             }
         }
