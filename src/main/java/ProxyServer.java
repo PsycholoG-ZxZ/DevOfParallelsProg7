@@ -36,6 +36,7 @@ public class ProxyServer {
                             for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
                                 if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
+                                    System.out.println("Go Throw GET in proxy");
                                     ZFrame newFrme = mapZD.getKey();
                                     msg.addFirst(newFrme);
                                     msg.send(backend);
@@ -46,6 +47,7 @@ public class ProxyServer {
                             for (Map.Entry<ZFrame,DataCache> mapZD : frameAndCacheMap.entrySet()){
                                 if ((Integer.parseInt(msgInStr[1]) >= mapZD.getValue().getBegin()) &&
                                         (Integer.parseInt(msgInStr[1]) <= mapZD.getValue().getEnd())){
+                                    System.out.println("Go Throw Put in proxy");
                                     ZFrame newFrme = mapZD.getKey();
                                     ZMsg msgForBack = msg.duplicate();
                                     msgForBack.addFirst(newFrme);
