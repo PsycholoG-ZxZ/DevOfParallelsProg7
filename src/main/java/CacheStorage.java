@@ -42,6 +42,7 @@ public class CacheStorage {
                         int pos = Integer.parseInt(contentStrings[1]);
                         mess_poller_0.pollLast();
                         mess_poller_0.addLast(cache.get(pos)).send(socket);
+                        System.out.println("GET из Cache  - " + contentStrings[0]+ " " +contentStrings[1]);
                     }
                     if(contentStrings[0].contains("PUT")){
                         int pos = Integer.parseInt(contentStrings[1]);
