@@ -4,5 +4,10 @@ public class DataCache {
     private int begin, end;
     private long time;
 
-    public DataCache
+    public DataCache(int b, int e, long time){
+        this.begin=b;
+        this.end = e;
+        this.time = time;
+    }
+    
 }
