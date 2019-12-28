@@ -21,6 +21,9 @@ public class ProxyServer {
 
             poller.register(frontend, ZMQ.Poller.POLLIN);
             poller.register(backend, ZMQ.Poller.POLLIN);
+
+            long time = System.currentTimeMillis();
+
             while (!Thread.currentThread().isInterrupted()){
                 poller.poll();
                 if (!frameAndCacheMap.isEmpty() && System.currentTimeMillis() - time)
