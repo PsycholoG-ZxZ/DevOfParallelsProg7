@@ -9,7 +9,7 @@ public class DataCache {
         this.end = e;
         this.time = time;
     }
-    public changeTime(long time){
+    public void changeTime(long time){
         this.time = time;
     }
 }
