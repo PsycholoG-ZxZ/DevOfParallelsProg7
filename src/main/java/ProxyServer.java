@@ -38,7 +38,7 @@ public class ProxyServer {
                                 , System.currentTimeMillis());
                         frameAndCacheMap.put(msg.getFirst(), data);
                     }else{
-                        frameAndCacheMap.get(msg.getFirst().duplicate());
+                        frameAndCacheMap.get(msg.getFirst());
                     }
 
                 }
