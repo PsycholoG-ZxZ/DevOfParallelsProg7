@@ -33,6 +33,7 @@ public class ProxyServer {
                         Map.Entry<ZFrame, DataCache> entry = iter.next();
                         if (Math.abs(entry.getValue().getTime() - time) > 5000 *2){
                             System.out.println("Cache deleted" + entry.getKey());
+                            iter.remove();
                         }
                     }
                 }
