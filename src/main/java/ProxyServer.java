@@ -18,6 +18,7 @@ public class ProxyServer {
             frontend.bind("tcp://localhost:5555");
             backend.bind("tcp://localhost:6665");
             ZMQ.Poller poller =context.createPoller(2);
+
             poller.register(frontend, ZMQ.Poller.POLLIN);
             poller.register(backend, ZMQ.Poller.POLLIN);
             while (!Thread.currentThread().isInterrupted()){
@@ -62,8 +63,9 @@ public class ProxyServer {
                     }
                 }
                 if (poller.pollin(1)){
-                    if
+
                     ZMsg msg = ZMsg.recvMsg(backend);
+                    
                     if (!frameAndCacheMap.containsKey(msg.getFirst())) {
                         ZFrame frame = msg.getLast();
                         String[] splitedFrame = frame.toString().split(" ");
