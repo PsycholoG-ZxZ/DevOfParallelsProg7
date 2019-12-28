@@ -13,6 +13,7 @@ public class CacheStorage {
         for (int i = scanner.nextInt(); i <= scanner.nextInt(); i++){
             cache.put(i, "");
         }
+        System.out.println("scanner accept data");
         ZContext context = new ZContext();
         ZMQ.Socket socket = null;
         try {
