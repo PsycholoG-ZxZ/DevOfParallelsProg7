@@ -31,7 +31,7 @@ public class CacheStorage {
             while (true){
                 if (System.currentTimeMillis() - timeCut > 4999){
                     ZMsg mess = new ZMsg();
-                    mess.addLast("Hearthbeat");
+                    mess.addLast("Hearthbeat"+ " " + l + " " + r);
                     mess.send(socket);
                 }
                 if (poller.pollin(0)){
